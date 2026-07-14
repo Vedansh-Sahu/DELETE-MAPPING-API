@@ -12,13 +12,13 @@ import java.util.Optional;
 public class  JournalEntryService {
     @Autowired
     private JournalEntryRepository journalEntryRepository;
-    public List<JournalEntry> getAll(){
-        return journalEntryRepository.findAll();
-    }
-    public Optional<JournalEntry> getById(ObjectId objectId){
-        return journalEntryRepository.findById(objectId);
-    }
     public void saveMyEntry(JournalEntry journalEntry) {
         journalEntryRepository.save(journalEntry);
+    }
+    public void deleteById(ObjectId objectId){
+        journalEntryRepository.deleteById(objectId);
+    }
+    public void deleteAll(){
+        journalEntryRepository.deleteAll();
     }
 }

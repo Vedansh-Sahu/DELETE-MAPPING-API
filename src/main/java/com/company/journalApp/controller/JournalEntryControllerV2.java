@@ -13,15 +13,15 @@ import java.util.List;
 public class JournalEntryControllerV2 {
     @Autowired
     private JournalEntryService journalEntryService;
-
-    @GetMapping
-    public List<JournalEntry> getAll(){
-        return journalEntryService.getAll();
+    @DeleteMapping
+    public boolean deleteAll(){
+        journalEntryService.deleteAll();
+        return true;
     }
-    @GetMapping("id/{myId}")
-    public JournalEntry getJournalEntryById(@PathVariable ObjectId myId){
-        journalEntryService.getById(myId).orElse(null);
-        return null;
+    @DeleteMapping("id/{myId}")
+    public boolean deleteJournalEntryById(@PathVariable ObjectId myId){
+        journalEntryService.deleteById(myId);
+        return true;
     }
     @PostMapping
     public JournalEntry createEntry(@RequestBody JournalEntry myEntry ) {

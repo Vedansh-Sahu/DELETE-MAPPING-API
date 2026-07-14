@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Document(collection = "journal_entries")
 public class JournalEntry {
     @Id
-    private String id;
+    private ObjectId id;
     private String title;
     private String content;
     private LocalDateTime date;
@@ -21,12 +21,11 @@ public class JournalEntry {
         this.date = date;
     }
 
-
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
